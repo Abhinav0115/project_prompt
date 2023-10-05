@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { AiOutlineSearch } from "react-icons/ai";
 
 import PromptCard from "./PromptCard";
 
@@ -72,22 +73,22 @@ const Feed = () => {
                         name=""
                         className="search_input peer"
                         id=""
-                        placeholder="Search for a tag or username"
+                        placeholder="Search for a prompt, tag or user"
                         value={searchText}
                         onChange={handleSearchChange}
                         required
                     />
                 </form>
                 {searchText ? (
-                        <PromptCardList
-                            data={searchResults}
-                            handleTagClick={handleTagClick}
-                        />
+                    <PromptCardList
+                        data={searchResults}
+                        handleTagClick={handleTagClick}
+                    />
                 ) : (
-                        <PromptCardList
-                            data={AllPosts}
-                            handleTagClick={handleTagClick}
-                        />
+                    <PromptCardList
+                        data={AllPosts}
+                        handleTagClick={handleTagClick}
+                    />
                 )}
             </section>
         </>

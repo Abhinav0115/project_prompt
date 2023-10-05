@@ -24,7 +24,9 @@ module.exports = {
                 inter: ["Inter", "sans-serif"],
             },
             colors: {
+                "Lang-Lavender": "#f2edf5",
                 "primary-orange": "#FF5722",
+                "Cornflower-Blue": "#AEC4EB",
             },
         },
     },

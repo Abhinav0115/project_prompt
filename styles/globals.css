@@ -27,6 +27,9 @@
     height: 100%;
     top: 0;
 }
+.checking {
+    color: aqua;
+}
 
 .main:after {
     content: "";
@@ -137,7 +140,7 @@
 
 /* Nav Component */
 .logo_text {
-    @apply max-sm:hidden font-satoshi font-semibold text-lg text-black tracking-wide;
+    @apply max-sm:hidden font-satoshi font-semibold text-lg tracking-wide relative right-7;
 }
 
 .dropdown {
@@ -150,7 +153,7 @@
 
 /* PromptCard Component */
 .prompt_card {
-    @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
+    @apply flex-1 break-inside-avoid rounded-lg border border-gray-300  bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
 }
 
 .flex-center {

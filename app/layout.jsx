@@ -5,7 +5,7 @@ import "@styles/globals.css";
 // import { Metadata } from "next";
 
 export const metadata = {
-    title: "Promptopia",
+    title: "Prompts.ai",
     description: "Discover & Share AI Prompts",
     image: "/assets/images/logo.svg",
 };

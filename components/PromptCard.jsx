@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 
+import { AiFillTag } from "react-icons/ai";
+
 const PromptCard = ({ post, handleTagClick, handleDelete, handleEdit }) => {
     const router = useRouter();
     const pathName = usePathname();
@@ -32,7 +34,7 @@ const PromptCard = ({ post, handleTagClick, handleDelete, handleEdit }) => {
         post?.creator.email.slice(0, 5) + "***" + post?.creator.email.slice(-8);
 
     return (
-        <div className="prompt_card">
+        <div className="prompt_card bg-Lang-Lavender">
             <div className="flex justify-between items-start gap-5">
                 <div
                     className="flex flex-1 cursor-pointer items-center justify-start gap-3"
@@ -69,14 +71,15 @@ const PromptCard = ({ post, handleTagClick, handleDelete, handleEdit }) => {
                     />
                 </div>
             </div>
-            <p className="my-4 font-satoshi text-sm text-gray-700">
+            <p className="my-4 font-satoshi text-sm text-gray-800 first-letter:capitalize">
                 {post.prompt}
             </p>
             <p
-                className="font-inte text-sm cursor-pointer blue_gradient"
+                className="font-inte text-sm cursor-pointer flex flex-row bg-gray-300 w-fit rounded p-1 pr-2 text-teal-800 font-semibold capitalize"
                 onClick={() => handleTagClick && handleTagClick(post.tag)}
             >
-                #{post.tag}
+                <AiFillTag className="text-orange-500 mr-2 text-xl" />{" "}
+                {post.tag}
             </p>
 
             {session?.user.id === post.creator._id &&

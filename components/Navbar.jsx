@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
+import { FcGoogle } from "react-icons/fc";
+
 const Navbar = () => {
     const isUserLoggedIn = true;
     const { data: session } = useSession();
@@ -29,13 +31,18 @@ const Navbar = () => {
         <nav className="flex-between w-full mb-16 pt-3">
             <Link href={"/"} className="flex-center flex gap-2">
                 <Image
-                    className="object-contain"
+                    className="object-contain rounded-full bg-lime-400"
                     src={"/assets/images/logo.svg"}
                     width={30}
                     height={30}
-                    alt={"Promptopia Logo"}
+                    alt={"Prompts.ai Logo"}
                 />
-                <p className="logo_text">Promptopia</p>
+                <p className="logo_text text-teal-700">
+                    <span className="font-semibold text-3xl relative top-0.5 right-0.5 text-Lang-Lavender   ">
+                        P
+                    </span>
+                    romptopia.ai
+                </p>
             </Link>
             {/* Desktop navigation */}
             <div className="sm:flex hidden">
@@ -71,7 +78,7 @@ const Navbar = () => {
                                     className="black_btn"
                                     onClick={() => signIn(provider.id)}
                                 >
-                                    Sign In
+                                    Sign In <FcGoogle className="ml-2" />
                                 </button>
                             ))}
                     </>
@@ -98,7 +105,7 @@ const Navbar = () => {
                                     onClick={() => setToggleDropdown(false)}
                                     className="dropdown_link"
                                 >
-                                    My Profile
+                                    Profile
                                 </Link>
                                 <Link
                                     href={"/create-prompt"}
@@ -130,7 +137,7 @@ const Navbar = () => {
                                     className="black_btn"
                                     onClick={() => signIn(provider.id)}
                                 >
-                                    Sign In
+                                    Sign In <FcGoogle className="ml-2" />
                                 </button>
                             ))}
                     </>
