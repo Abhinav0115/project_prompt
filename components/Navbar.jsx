@@ -41,7 +41,7 @@ const Navbar = () => {
                     <span className="font-semibold text-3xl relative top-0.5 right-0.5 text-Lang-Lavender   ">
                         P
                     </span>
-                    romptopia.ai
+                    rompts.ai
                 </p>
             </Link>
             {/* Desktop navigation */}
