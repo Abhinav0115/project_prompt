@@ -29,7 +29,7 @@ const Prompt_Card = () => {
 const PromptCardList = () => {
     return (
         <div className="mt-16 prompt_layout">
-            {[...new Array(8)].map((post) => (
+            {[...new Array(9)].map((post) => (
                 <Prompt_Card />
             ))}
         </div>

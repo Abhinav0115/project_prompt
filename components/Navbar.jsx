@@ -30,7 +30,7 @@ const Navbar = () => {
         <nav className="flex-between w-full mb-16 pt-3">
             <Link href={"/"} className="flex-center flex gap-2">
                 <Image
-                    className="object-contain rounded-full bg-lime-400"
+                    className="object-contain rounded-full bg-lime-600"
                     src={"/assets/images/logo.svg"}
                     width={30}
                     height={30}

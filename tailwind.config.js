@@ -22,6 +22,7 @@ module.exports = {
             fontFamily: {
                 satoshi: ["Satoshi", "sans-serif"],
                 inter: ["Inter", "sans-serif"],
+                pixelify: ["Pixelify Sans", "cursive"],
             },
             colors: {
                 "Lang-Lavender": "#f2edf5",
