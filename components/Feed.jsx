@@ -1,6 +1,7 @@
 "use client";
-import { useState, useEffect } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
+import { useState, useEffect, Suspense } from "react";
+import { PiPaintBrushHousehold } from "react-icons/pi";
+import Loading from "@components/LoadingFeedSkeleton";
 
 import PromptCard from "./PromptCard";
 
@@ -22,6 +23,7 @@ const Feed = () => {
     const [searchText, setSearchText] = useState("");
     const [searchTimeout, setSearchTimeout] = useState(null);
     const [searchResults, setSearchResults] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     const [AllPosts, setAllPosts] = useState([]);
 
@@ -55,11 +57,15 @@ const Feed = () => {
     };
 
     useEffect(() => {
+        setIsLoading(true);
         const fetchPosts = async () => {
             const res = await fetch("/api/prompt");
             const data = await res.json();
 
-            setAllPosts(data);
+            setTimeout(() => {
+                setAllPosts(data);
+                setIsLoading(false);
+            }, 2000);
         };
 
         fetchPosts();
@@ -71,15 +77,23 @@ const Feed = () => {
                     <input
                         type="text"
                         name=""
-                        className="search_input peer"
+                        className="search_input peer mt-6"
                         id=""
                         placeholder="Search for a prompt, tag or user"
                         value={searchText}
                         onChange={handleSearchChange}
                         required
                     />
+                    <div
+                        className="absolute right-2 top-7 cursor-pointer rounded-full bg-transparent p-1 text-gray-400 hover:scale-110 hover:text-gray-800  -rotate-[15deg]"
+                        onClick={() => setSearchText("")}
+                    >
+                        <PiPaintBrushHousehold className="h-6 w-6" />
+                    </div>
                 </form>
-                {searchText ? (
+                {isLoading ? (
+                    <Loading />
+                ) : searchText ? (
                     <PromptCardList
                         data={searchResults}
                         handleTagClick={handleTagClick}

@@ -81,11 +81,11 @@
 }
 
 .black_btn {
-    @apply rounded-full border border-black bg-black py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
+    @apply rounded-full border border-black bg-black py-1.5 px-4 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
 }
 
 .outline_btn {
-    @apply rounded-full border border-black bg-transparent py-1.5 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm font-inter flex items-center justify-center;
+    @apply rounded-full border border-black bg-transparent py-1.5 px-4 text-black transition-all hover:bg-black hover:text-white text-center text-sm font-inter flex items-center justify-center;
 }
 
 .head_text {
@@ -126,7 +126,7 @@
 
 /* Feed Component */
 .feed {
-    @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
+    @apply mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
 }
 
 /* Form Component */
@@ -170,4 +170,35 @@
 
 .flex-between {
     @apply flex justify-between items-center;
+}
+
+/* skeleton loading */
+
+.skeleton-prompt_card {
+    @apply flex-1 break-inside-avoid rounded-lg border animate-pulse   bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
+}
+
+@keyframes skeletonLoading {
+    0% {
+        background-color: hsl(200, 20%, 80%);
+    }
+    50% {
+        background-color: hsl(200, 20%, 90%);
+    }
+    100% {
+        background-color: hsl(200, 20%, 80%);
+    }
+}
+
+.skeleton_card {
+    border-color: skeletonLoading;
+    animation: skeletonLoading ease-in-out 1s linear infinite;
+}
+
+.skeleton {
+    animation: skeletonLoading 1s linear infinite;
+}
+
+.skeleton_height {
+    height: 1.2rem;
 }

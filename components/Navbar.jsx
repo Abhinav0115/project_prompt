@@ -7,7 +7,6 @@ import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 
 const Navbar = () => {
-    const isUserLoggedIn = true;
     const { data: session } = useSession();
 
     const [providers, setProviders] = useState(null);
@@ -78,7 +77,8 @@ const Navbar = () => {
                                     className="black_btn"
                                     onClick={() => signIn(provider.id)}
                                 >
-                                    Sign In <FcGoogle className="ml-2" />
+                                    Sign In{" "}
+                                    <FcGoogle className="ml-2 h-6 w-6" />
                                 </button>
                             ))}
                     </>
@@ -137,7 +137,8 @@ const Navbar = () => {
                                     className="black_btn"
                                     onClick={() => signIn(provider.id)}
                                 >
-                                    Sign In <FcGoogle className="ml-2" />
+                                    Sign In{" "}
+                                    <FcGoogle className="ml-2 h-6 w-6" />
                                 </button>
                             ))}
                     </>
