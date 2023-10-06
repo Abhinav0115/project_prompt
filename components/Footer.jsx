@@ -20,13 +20,13 @@ const Footer = () => {
     }
     return (
         loadFooter && (
-            <footer className="w-[100%] border border-gray-600 pt-4 pb-1  rounded-t-xl flex max-md:flex-col  justify-around">
+            <footer className="w-[100%] border border-gray-600 pt-4 pb-1  rounded-t-xl flex mt-16 max-md:flex-col  justify-around">
                 <Link
                     href={"https://github.com/Abhinav0115?tab=repositories"}
                     target="_blank"
                     className="p-2 w-2/6 px-4 mb-2 flex justify-center uppercase font-pixelify font-semibold rounded-lg hover:bg-black hover:text-white border border-stone-500 max-md:w-fit max-md:mx-auto"
                 >
-                    Check out others project at{" "}
+                    Check out others projects{" "}
                     <AiOutlineGithub className="h-6 w-6 ml-1" />
                 </Link>
                 <Link
@@ -34,7 +34,7 @@ const Footer = () => {
                     target="_blank"
                     className="p-2 w-2/6 px-4 mb-2 flex justify-center uppercase font-pixelify font-semibold rounded-lg hover:bg-transparent hover:text-black hover:border-stone-500 hover:border bg-lime-700 text-white max-md:w-fit max-md:mx-auto"
                 >
-                    Check out the project at{" "}
+                    Check out the project{" "}
                     <AiOutlineGithub className="h-6 w-6 ml-1" />
                 </Link>
             </footer>

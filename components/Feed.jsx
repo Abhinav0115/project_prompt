@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect } from "react";
 import { PiPaintBrushHousehold } from "react-icons/pi";
 import Loading from "@components/LoadingFeedSkeleton";
 

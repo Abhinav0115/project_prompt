@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -10,6 +10,8 @@ const PromptCard = ({ post, handleTagClick, handleDelete, handleEdit }) => {
     const router = useRouter();
     const pathName = usePathname();
     const [copied, setCopied] = useState("");
+
+    const [tagsData, setTagsData] = useState([]);
 
     const { data: session } = useSession();
 
@@ -29,6 +31,9 @@ const PromptCard = ({ post, handleTagClick, handleDelete, handleEdit }) => {
             `/profile/${post.creator._id}?name=${post.creator.username}`
         );
     };
+    useEffect(() => {
+        setTagsData(post.tag.split(",").slice(0, 3));
+    }, []);
 
     const hashedEmail =
         post?.creator.email.slice(0, 5) + "***" + post?.creator.email.slice(-8);
@@ -74,13 +79,18 @@ const PromptCard = ({ post, handleTagClick, handleDelete, handleEdit }) => {
             <p className="my-4 font-satoshi text-sm text-gray-800 first-letter:capitalize">
                 {post.prompt}
             </p>
-            <p
-                className="font-inte text-sm cursor-pointer flex flex-row bg-gray-300 w-fit rounded p-1 pr-2 text-teal-800 font-semibold capitalize"
-                onClick={() => handleTagClick && handleTagClick(post.tag)}
-            >
-                <AiFillTag className="text-orange-500 mr-2 text-xl" />{" "}
-                {post.tag}
-            </p>
+            <div className="flex">
+                {tagsData?.map((tag) => (
+                    <p
+                        key={tag}
+                        className="font-inte text-sm cursor-pointer flex flex-row bg-gray-300 w-fit rounded p-1 pr-2 text-teal-800 font-semibold capitalize mx-1"
+                        onClick={() => handleTagClick && handleTagClick(tag)}
+                    >
+                        <AiFillTag className="text-orange-500 mr-2 text-xl" />{" "}
+                        {tag}
+                    </p>
+                ))}
+            </div>
 
             {session?.user.id === post.creator._id &&
                 pathName === "/profile" && (

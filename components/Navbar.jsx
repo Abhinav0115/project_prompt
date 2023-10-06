@@ -37,7 +37,7 @@ const Navbar = () => {
                     alt={"Prompts.ai Logo"}
                 />
                 <p className="logo_text text-teal-700">
-                    <span className="font-semibold text-3xl relative top-0.5 right-0.5 text-Lang-Lavender   ">
+                    <span className="font-semibold text-3xl relative top-0.5 right-0.5 text-Lang-Lavender  ">
                         P
                     </span>
                     rompts.ai
