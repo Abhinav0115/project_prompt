@@ -1,16 +1,23 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
+import { usePathname } from "next/navigation";
 import { AiOutlineGithub } from "react-icons/ai";
 
 const Footer = () => {
     const [loadFooter, setLoadFooter] = useState(false);
+    const pathName = usePathname();
 
-    setTimeout(() => {
-        setLoadFooter(true);
-    }, 1000);
-
+    if (pathName.split("/")[1] !== "") {
+        setTimeout(() => {
+            setLoadFooter(true);
+        }, 2000);
+    } else {
+        setTimeout(() => {
+            setLoadFooter(true);
+        }, 1000);
+    }
     return (
         loadFooter && (
             <footer className="w-[100%] border border-gray-600 pt-4 pb-1  rounded-t-xl flex max-md:flex-col  justify-around">
