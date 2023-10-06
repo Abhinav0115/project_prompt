@@ -62,10 +62,10 @@ const Feed = () => {
             const res = await fetch("/api/prompt");
             const data = await res.json();
 
+            setAllPosts(data);
             setTimeout(() => {
-                setAllPosts(data);
                 setIsLoading(false);
-            }, 2000);
+            }, 1800);
         };
 
         fetchPosts();
